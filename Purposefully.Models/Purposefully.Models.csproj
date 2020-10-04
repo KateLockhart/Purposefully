@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,7 +42,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntryModels\EntryCreate.cs" />
+    <Compile Include="EntryModels\EntryDetail.cs" />
+    <Compile Include="EntryModels\EntryEdit.cs" />
+    <Compile Include="EntryModels\EntryListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GoalModels\" />
+    <Folder Include="ProfileModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Purposefully.Data\Purposefully.Data.csproj">
+      <Project>{588ED5C4-B37C-4103-807F-318BAAE4CCB9}</Project>
+      <Name>Purposefully.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

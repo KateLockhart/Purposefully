@@ -46,15 +46,17 @@
     <Compile Include="EntryModels\EntryDetail.cs" />
     <Compile Include="EntryModels\EntryEdit.cs" />
     <Compile Include="EntryModels\EntryListItem.cs" />
+    <Compile Include="GoalModels\GoalCreate.cs" />
+    <Compile Include="GoalModels\GoalDetail.cs" />
+    <Compile Include="GoalModels\GoalEdit.cs" />
+    <Compile Include="GoalModels\GoalListItem.cs" />
     <Compile Include="ProfileModels\ProfileCreate.cs" />
     <Compile Include="ProfileModels\ProfileDetail.cs" />
     <Compile Include="ProfileModels\ProfileEdit.cs" />
     <Compile Include="ProfileModels\ProfileListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="GoalModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Purposefully.Data\Purposefully.Data.csproj">
       <Project>{588ED5C4-B37C-4103-807F-318BAAE4CCB9}</Project>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Purposefully.Models.GoalModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Purposefully.Models.ProfileModels
 {
-    class ProfileDetail
+    public class ProfileDetail
     {
         public int ProfileId { get; set; }
         public string FirstName { get; set; }
@@ -20,5 +21,6 @@ namespace Purposefully.Models.ProfileModels
             }
         }
         public string Motivation { get; set; }
+        public List<GoalDetail> GoalsOfUser { get; set; }
     }
 }

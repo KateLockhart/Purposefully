@@ -9,6 +9,9 @@ namespace Purposefully.Models.ProfileModels
 {
     public class ProfileEdit
     {
+        [Required]
+        public int ProfileId { get; set; }
+
         [StringLength(20, MinimumLength = 3, ErrorMessage = "First name should be between 3 and 20 characters.")]
         public string FirstName { get; set; }
 

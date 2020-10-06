@@ -14,6 +14,7 @@ namespace Purposefully.Services
         private readonly Guid _userId;
         private readonly ApplicationDbContext _context = new ApplicationDbContext();
 
+        public ProfileService() { }
         public ProfileService(Guid userId)
         {
             _userId = userId;
@@ -62,7 +63,7 @@ namespace Purposefully.Services
         // Get by Id - Read
         public ProfileDetail GetProfileById(int id)
         {
-            using ( var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx

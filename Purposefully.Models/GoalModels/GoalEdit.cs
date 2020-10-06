@@ -21,19 +21,7 @@ namespace Purposefully.Models.GoalModels
         [Required(ErrorMessage = "Please detail your goal for the best results.")]
         [StringLength(2000, MinimumLength = 3, ErrorMessage = "Your goal description cannot be more than 2000 characters.")]
         public string GoalContent { get; set; }
-        public enum GoalType
-        {
-            Career,
-            Education,
-            Experiential,
-            Financial,
-            Fitness,
-            Life,
-            Nutrition,
-            Personal,
-            Relationship,
-            Spiritual
-        }
+        public GoalType GoalType { get; set; }
 
         [Required]
         public int Difficulty { get; set; }

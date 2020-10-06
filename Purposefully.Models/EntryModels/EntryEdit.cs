@@ -17,8 +17,8 @@ namespace Purposefully.Models.EntryModels
         [Display(Name = "Is this for one of your goals?")]
         public bool ForGoal { get; set; }
 
-        [Display(Name = "Goal")]
-        public string GoalTitle { get; set; }
+        [Display(Name = "Goal ID #")]
+        public int GoalId { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

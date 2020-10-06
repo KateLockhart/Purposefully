@@ -25,8 +25,8 @@ namespace Purposefully.Models.EntryModels
         /*[Display(Name = "For a goal?")]
         public bool ForGoal { get; set; }
 
-        [Display(Name = "Goal Title")]
-        public string GoalTitle { get; set; }*/
+        [Display(Name = "Goal ID #")]
+        public int GoalId { get; set; }*/
 
         [Display(Name = "Created on")]
         public DateTimeOffset CreatedUtc { get; set; }

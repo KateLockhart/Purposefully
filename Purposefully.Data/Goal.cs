@@ -8,6 +8,19 @@ using System.Threading.Tasks;
 
 namespace Purposefully.Data
 {
+    public enum GoalType 
+    { 
+        Career,
+        Education,
+        Experiential,
+        Financial,
+        Fitness,
+        Life,
+        Nutrition,
+        Personal,
+        Relationship,
+        Spiritual
+    }
     public class Goal
     {
         [Key]
@@ -18,21 +31,9 @@ namespace Purposefully.Data
 
         [Required]
         public string GoalContent { get; set; }
-        public enum GoalType 
-        { 
-            Career,
-            Education,
-            Experiential,
-            Financial,
-            Fitness,
-            Life,
-            Nutrition,
-            Personal,
-            Relationship,
-            Spiritual
-        }
-        [Required]
+        public GoalType GoalType { get; set; }
 
+        [Required]
         public int Difficulty { get; set; }
         [Required]
         public DateTime StartDate { get; set; }

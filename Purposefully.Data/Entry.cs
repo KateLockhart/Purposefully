@@ -25,7 +25,7 @@ namespace Purposefully.Data
         public bool ForGoal { get; set; }
         
         [ForeignKey(nameof(Goal))]
-        public string GoalTitle { get; set; }
+        public int GoalId { get; set; }
         public virtual Goal Goal { get; set; }
 
         public DateTimeOffset CreatedUtc { get; set; }

@@ -22,14 +22,14 @@ namespace Purposefully.Models.EntryModels
         public string EntryContent { get; set; }
 
         //Potentially not including as List Item but for Detail only
-        /*[Display(Name = "For a goal?")]
+        [Display(Name = "For a goal?")]
         public bool ForGoal { get; set; }
 
         [Display(Name = "Goal ID #")]
-        public int GoalId { get; set; }*/
+        public int GoalId { get; set; }
 
         [Display(Name = "Created on")]
         public DateTimeOffset CreatedUtc { get; set; }
-        /*public DateTimeOffset? ModifiedUtc { get; set; }*/
+        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

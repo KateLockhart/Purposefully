@@ -13,19 +13,16 @@ namespace Purposefully.Data
     {
         [Key]
         public int EntryId { get; set; }
-        [Required]
         public Guid Author { get; set; }
         [Required]
         public string EntryTitle { get; set; }
         [Required]
         public string EntryContent { get; set; }
 
-        [Required]
-        [Display(Name = "Is this for one of your goals?")]
         public bool ForGoal { get; set; }
         
         [ForeignKey(nameof(Goal))]
-        public int GoalId { get; set; }
+        public int? GoalId { get; set; }
         public virtual Goal Goal { get; set; }
 
         public DateTimeOffset CreatedUtc { get; set; }

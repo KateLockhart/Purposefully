@@ -57,12 +57,43 @@
     <Compile Include="Entry.cs" />
     <Compile Include="Goal.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202010080218167_InitialCreate.cs" />
+    <Compile Include="Migrations\202010080218167_InitialCreate.Designer.cs">
+      <DependentUpon>202010080218167_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010080220556_InitialMigration.cs" />
+    <Compile Include="Migrations\202010080220556_InitialMigration.Designer.cs">
+      <DependentUpon>202010080220556_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010081608148_SecondaryMigration.cs" />
+    <Compile Include="Migrations\202010081608148_SecondaryMigration.Designer.cs">
+      <DependentUpon>202010081608148_SecondaryMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010081810102_ThirdMigration.cs" />
+    <Compile Include="Migrations\202010081810102_ThirdMigration.Designer.cs">
+      <DependentUpon>202010081810102_ThirdMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202010080218167_InitialCreate.resx">
+      <DependentUpon>202010080218167_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010080220556_InitialMigration.resx">
+      <DependentUpon>202010080220556_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010081608148_SecondaryMigration.resx">
+      <DependentUpon>202010081608148_SecondaryMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010081810102_ThirdMigration.resx">
+      <DependentUpon>202010081810102_ThirdMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

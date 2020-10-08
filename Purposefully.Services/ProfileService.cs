@@ -4,8 +4,6 @@ using Purposefully.Models.ProfileModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Purposefully.Services
 {
@@ -63,6 +61,8 @@ namespace Purposefully.Services
         // Get by Id - Read
         public ProfileDetail GetProfileById(int id)
         {
+            GoalService goalService = new GoalService();
+
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
@@ -79,12 +79,15 @@ namespace Purposefully.Services
                 };
                     foreach (Goal goal in entity.GoalsOfUser)
                     {
-                        GoalDetail goalDetail = GoalService.GetGoalById(goal.GoalId);
+                    GoalDetail goalDetail = goalService.GetGoalById(goal.GoalId);
                         detail.GoalsOfUser.Add(goalDetail);
                     }
                 return detail;
             }
         }
+
+        // Access and read items from the Goal iCollection
+
 
         // Update - Put 
         public bool UpdateProfile(ProfileEdit model)

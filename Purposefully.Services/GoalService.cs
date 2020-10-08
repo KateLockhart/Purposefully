@@ -74,6 +74,8 @@ namespace Purposefully.Services
         // Get by ID - Read
         public GoalDetail GetGoalById(int id)
         {
+            EntryService entryService = new EntryService();
+
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
@@ -95,12 +97,14 @@ namespace Purposefully.Services
                 };
                     foreach (Entry entry in entity.AllEntiresForGoal)
                     {
-                        EntryDetail entryDetail = EntryService.GetEntryById(entry.EntryId);
+                    EntryDetail entryDetail = entryService.GetEntryById(entry.EntryId);
                         detail.AllEntiresForGoal.Add(entryDetail);
                     }
                 return detail;
             }
         }
+
+        // Access and read items from the Entry iCollection
 
         // Put - Update
         public bool UpdateGoal(GoalEdit model)

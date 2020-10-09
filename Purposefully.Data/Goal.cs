@@ -47,6 +47,6 @@ namespace Purposefully.Data
         public int ProfileId { get; set; }
         public virtual Profile Profile { get; set; }
 
-        public virtual ICollection<Entry> AllEntiresForGoal { get; set; } = new List<Entry>();
+        public virtual ICollection<Entry> AllEntriesForGoal { get; set; } = new List<Entry>();
     }
 }

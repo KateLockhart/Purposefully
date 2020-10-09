@@ -36,6 +36,6 @@ namespace Purposefully.Models.GoalModels
         public int ProfileId { get; set; }
         public virtual Profile Profile { get; set; }
 
-        public List<EntryDetail> AllEntiresForGoal { get; set; }
+        public List<EntryDetail> AllEntriesForGoal { get; set; }
     }
 }

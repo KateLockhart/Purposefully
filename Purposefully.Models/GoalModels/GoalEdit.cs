@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,8 @@ namespace Purposefully.Models.GoalModels
         public GoalType GoalType { get; set; }
 
         [Required]
+        [IntegerValidator(MinValue = 1, MaxValue =5,
+    ExcludeRange = false)]
         public int Difficulty { get; set; }
         [Required]
         public DateTime StartDate { get; set; }

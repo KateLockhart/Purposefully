@@ -245,10 +245,16 @@
     <Content Include="Views\Profile\Details.cshtml" />
     <Content Include="Views\Profile\Edit.cshtml" />
     <Content Include="Views\Profile\Delete.cshtml" />
+    <Content Include="Views\Entry\Edit.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Goal\Index.cshtml" />
+    <Content Include="Views\Goal\Create.cshtml" />
+    <Content Include="Views\Goal\Details.cshtml" />
+    <Content Include="Views\Goal\Edit.cshtml" />
+    <Content Include="Views\Goal\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Goal\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

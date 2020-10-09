@@ -33,6 +33,6 @@ namespace Purposefully.Models.GoalModels
 
         [ForeignKey(nameof(Profile))]
         public int ProfileId { get; set; }
-        public List<EntryDetail> AllEntiresForGoal { get; set; }
+        public List<EntryDetail> AllEntriesForGoal { get; set; }
     }
 }

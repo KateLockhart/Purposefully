@@ -113,7 +113,9 @@ namespace Purposefully.WebMVC.Controllers
         public ActionResult DeleteEntry(int id)
         {
             var service = CreateEntryService();
+
             service.DeleteEntry(id);
+
             TempData["SaveResult"] = "Your journal entry has successfully been deleted.";
 
             return RedirectToAction("Index");

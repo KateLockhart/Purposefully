@@ -1,4 +1,5 @@
-﻿using Purposefully.Data;
+﻿using Microsoft.Win32;
+using Purposefully.Data;
 using Purposefully.Models.EntryModels;
 using Purposefully.Models.GoalModels;
 using System;
@@ -64,7 +65,7 @@ namespace Purposefully.Services
                                     EndDate = e.EndDate,
                                     Completed = e.Completed,
                                     ProfileId = e.ProfileId,
-                                    AllEntiresForGoal = new List<EntryDetail>()
+                                    //AllEntriesForGoal = new List<EntryDetail>()
                                 }
                         );
                 return query.ToArray();
@@ -93,18 +94,34 @@ namespace Purposefully.Services
                     EndDate = entity.EndDate,
                     Completed = entity.Completed,
                     ProfileId = entity.ProfileId,
-                    AllEntiresForGoal = new List<EntryDetail>()
+                    AllEntriesForGoal = ConvertDataEntitiesToViewModel(entity.AllEntriesForGoal.ToList())
                 };
-                    foreach (Entry entry in entity.AllEntiresForGoal)
-                    {
-                    EntryDetail entryDetail = entryService.GetEntryById(entry.EntryId);
-                        detail.AllEntiresForGoal.Add(entryDetail);
-                    }
                 return detail;
             }
         }
 
         // Access and read items from the Entry iCollection
+        public List<EntryDetail> ConvertDataEntitiesToViewModel(List<Entry> entries)
+        {
+            // instantiate a new List<EntryDetail>
+            List<EntryDetail> returnList = new List<EntryDetail>();
+            // assign the values from the entity.AllEntries[i]
+            foreach (var entry in entries)
+            {
+                var entryDetail = new EntryDetail();
+
+                entryDetail.EntryId = entry.EntryId;
+                entryDetail.EntryTitle = entry.EntryTitle;
+                entryDetail.EntryContent = entry.EntryContent;
+                entryDetail.ForGoal = entry.ForGoal;
+                entryDetail.GoalId = entry.GoalId;
+                entryDetail.CreatedUtc = entry.CreatedUtc;
+                entryDetail.ModifiedUtc = entry.ModifiedUtc;
+
+                returnList.Add(entryDetail);
+            }
+            return returnList;
+        }
 
         // Put - Update
         public bool UpdateGoal(GoalEdit model)

@@ -29,5 +29,11 @@ namespace Purposefully.Data
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Profile> Profiles { get; set; }
+
+        public DbSet<Goal> Goals { get; set; }
+
+        public DbSet<Entry> Entries { get; set; }
     }
 }

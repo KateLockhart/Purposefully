@@ -17,7 +17,7 @@ namespace Purposefully.WebMVC.Controllers
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new ProfileService(userId);
-            var model = new ProfileListItem[0];
+            var model = service.GetProfiles();
             return View(model);
         }
 
@@ -62,6 +62,7 @@ namespace Purposefully.WebMVC.Controllers
             var model =
                 new ProfileEdit
                 {
+                    ProfileId = detail.ProfileId,
                     FirstName = detail.FirstName,
                     LastName = detail.LastName,
                     Motivation = detail.Motivation
@@ -92,12 +93,18 @@ namespace Purposefully.WebMVC.Controllers
             ModelState.AddModelError("", "Your profile could not be updated, please try again.");
             return View(model);
         }
-
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateProfileService();
+            var model = svc.GetProfileById(id);
+            return View(model);
+        }
         // Delete
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id)
+        public ActionResult DeleteProfile(int id)
         {
             var service = CreateProfileService();
 

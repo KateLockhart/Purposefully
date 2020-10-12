@@ -98,7 +98,7 @@ namespace Purposefully.Services
                 var entity =
                     ctx
                         .Entries
-                        .Single(e => e.EntryId == model.EntryId);
+                        .SingleOrDefault(e => e.EntryId == model.EntryId);
 
                 entity.EntryTitle = model.EntryTitle;
                 entity.EntryContent = model.EntryContent;

@@ -4,34 +4,38 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Purposefully</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Content/Site.css" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Purposefully", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
-                    <li>@Html.ActionLink("Your Profile", "Index", "Profile")</li>
-                    <li>@Html.ActionLink("Goals", "Index", "Goal")</li>
-                    <li>@Html.ActionLink("Journal Entries", "Index", "Entry")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+    <nav class="navbar navbar-expand-lg">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Purposefully", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav mr-auto">
+                        @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
+                        <li class="nav-item nav-link">@Html.ActionLink("Your Profile", "Index", "Profile", new { area = "" }, new { @class = "nav-link " })</li>
+                        <li class="nav-item nav-link">@Html.ActionLink("Goals", "Index", "Goal", new { area = "" }, new { @class = "nav-link " })</li>
+                        <li class="nav-item nav-link">@Html.ActionLink("Journal Entries", "Index", "Entry", new { area = "" }, new { @class = "nav-link " })</li>
+                        <li class="nav-item nav-link">@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link " })</li>
+                        <li class="nav-item nav-link">@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link " })</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
             </div>
         </div>
-    </div>
+    </nav>
     <div class="container body-content">
         @RenderBody()
         <hr />

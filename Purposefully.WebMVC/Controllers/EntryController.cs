@@ -67,7 +67,7 @@ namespace Purposefully.WebMVC.Controllers
                     EntryTitle = detail.EntryTitle,
                     EntryContent = detail.EntryContent,
                     ForGoal = detail.ForGoal,
-                    GoalId = (int)detail.GoalId,
+                    GoalId = detail.GoalId,
                     ModifiedUtc = DateTime.UtcNow
                 };
             return View(model);

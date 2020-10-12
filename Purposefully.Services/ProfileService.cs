@@ -75,19 +75,34 @@ namespace Purposefully.Services
                     FirstName = entity.FirstName,
                     LastName = entity.LastName,
                     Motivation = entity.Motivation,
-                    GoalsOfUser = new List<GoalDetail>()
+                    GoalsOfUser = ConvertDataEntitiesToViewModel(entity.GoalsOfUser.ToList())
                 };
-                    foreach (Goal goal in entity.GoalsOfUser)
-                    {
-                    GoalDetail goalDetail = goalService.GetGoalById(goal.GoalId);
-                        detail.GoalsOfUser.Add(goalDetail);
-                    }
                 return detail;
             }
         }
 
         // Access and read items from the Goal iCollection
+        public List<GoalDetail> ConvertDataEntitiesToViewModel(List<Goal> goals)
+        {
+            List<GoalDetail> returnList = new List<GoalDetail>();
 
+            foreach (var goal in goals)
+            {
+                var goalDetail = new GoalDetail();
+
+                goalDetail.GoalId = goal.GoalId;
+                goalDetail.GoalTitle = goal.GoalTitle;
+                goalDetail.GoalContent = goal.GoalContent;
+                goalDetail.GoalType = (Models.GoalModels.GoalType)goal.GoalType;
+                goalDetail.Difficulty = goal.Difficulty;
+                goalDetail.StartDate = goal.StartDate;
+                goalDetail.EndDate = goal.EndDate;
+                goalDetail.Completed = goal.Completed;
+
+                returnList.Add(goalDetail);
+            }
+            return returnList;
+        }
 
         // Update - Put 
         public bool UpdateProfile(ProfileEdit model)
@@ -115,7 +130,7 @@ namespace Purposefully.Services
                 var entity =
                     ctx
                         .Profiles
-                        .SingleOrDefault(e => e.ProfileId == profileId);
+                        .Single(e => e.ProfileId == profileId);
 
                 ctx.Profiles.Remove(entity);
 

@@ -63,6 +63,7 @@ namespace Purposefully.WebMVC.Controllers
             var model =
                 new GoalEdit
                 {
+                    GoalId = detail.GoalId,
                     GoalTitle = detail.GoalTitle,
                     GoalContent = detail.GoalContent,
                     GoalType = detail.GoalType,

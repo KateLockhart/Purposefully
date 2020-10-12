@@ -1,0 +1,82 @@
+﻿@model Purposefully.Models.GoalModels.GoalDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>GoalDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GoalId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GoalId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GoalTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GoalTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GoalContent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GoalContent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Difficulty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Difficulty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Completed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Completed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfileId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfileId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.GoalId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

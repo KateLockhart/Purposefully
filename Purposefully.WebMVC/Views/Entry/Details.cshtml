@@ -1,0 +1,82 @@
+﻿@model Purposefully.Models.EntryModels.EntryDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EntryDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EntryId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EntryId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Author)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Author)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EntryTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EntryTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EntryContent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EntryContent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ForGoal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ForGoal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GoalId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GoalId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedUtc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EntryId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

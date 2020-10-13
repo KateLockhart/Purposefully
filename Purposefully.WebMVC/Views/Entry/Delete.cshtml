@@ -4,85 +4,50 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h2 style="margin-top: 5%; margin-left: 5%">Delete Journal Entry</h2>
+<h5 style="margin-top: 3%; margin-left: 10%; margin-right: 10%;">Below is the journal entry to be deleted. Please make sure you're ready to delete this entry as we cannot fetch it after deletion.</h5>
+<hr style="margin-bottom: 1%;" />
 
-<h3>Are you sure you want to delete this?</h3>
+@{
+    var createUTC = Model.CreatedUtc.Date.ToShortDateString();
+}
+
 <div>
-    <h4>EntryDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.EntryId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EntryId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Author)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Author)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EntryTitle)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EntryTitle)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EntryContent)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EntryContent)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ForGoal)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ForGoal)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.GoalId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.GoalId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedUtc)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifiedUtc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ModifiedUtc)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+    <div class="card bg-dark text-dark">
+        <img class="card-img" src="~/Content/Assets/Entry/CroppedPage.jpg" alt="Card image of a blank college ruled lined paper.">
+        <div class="card-img-overlay" id="EntryCardOverlay">
+            <h2 class="card-title">@Html.DisplayNameFor(model => model.EntryTitle)</h2>
+            <h4 class="card-text">Journal Entry ID # @Html.DisplayFor(model => model.EntryId), Created: @Html.DisplayFor(model => createUTC)</h4>
+            @if (Model.ModifiedUtc == null)
+            {
+                <p></p>
+            }
+            else
+            {
+                //var newDates = Model.ModifiedUtc.ToString().AsDateTime().Date.ToShortDateString();
+                <h4 class="card-text">Edited On: @Html.DisplayFor(model => model.ModifiedUtc)</h4>
+            }
+            <h4>@Html.DisplayFor(model => model.EntryContent)</h4>
+            @if (Model.GoalId == null)
+            {
+                <p></p>
+            }
+            else
+            {
+                <h4>For a goal? @Html.DisplayFor(model => model.ForGoal),   Goal ID # @Html.DisplayFor(model => model.GoalId)</h4>
+            }
         </div>
-    }
+    </div>
 </div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div style="margin-left: 10%; margin-top: 5%; margin-bottom: 5%;">
+        <input type="submit" value="Delete" class="btn btn-danger btn-lg" />
+        <button class="form-actions btn no-color" type="button">
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline-info btn-lg" })
+        </button>
+    </div>
+}
+

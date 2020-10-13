@@ -1,70 +1,100 @@
 ﻿@model IEnumerable<Purposefully.Models.EntryModels.EntryListItem>
 
+
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 style="margin-top: 5%; margin-left: 3%">Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.EntryId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EntryTitle)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EntryContent)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ForGoal)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GoalId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModifiedUtc)
-        </th>
-        <th></th>
-    </tr>
+<button type="button" class="btn" style="margin: 1%;">
+    @Html.ActionLink("Create New Entry", "Create", "", new { @class = "btn btn-info btn-md" })
+</button>
+<hr style="margin-bottom: 1%;" />
+
+<table class="table table-hover" style="background-color: white;">
+    <thead>
+        <tr>
+            <th scope="col">
+                Jounal Entry ID #
+            </th>
+            <th scope="col">
+                Entry Title
+            </th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.EntryId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EntryTitle)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EntryContent)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ForGoal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GoalId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedUtc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModifiedUtc)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.EntryId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.EntryId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.EntryId })
-            </td>
-        </tr>
+        <tbody>
+            <tr>
+                <th scope="row">
+                    @Html.DisplayFor(modelItem => item.EntryId)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EntryTitle)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.EntryId }, new { @class = "text-info" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.EntryId }, new { @class = "text-success" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.EntryId }, new { @class = "text-danger" })
+                </td>
+            </tr>
+        </tbody>
     }
 
 </table>
+
+@{ int i = 0; }
+
+<div class="panel-group" id="accordion_@i">
+    <div class="panel panel-default" id="panel_@i">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-target="#collapseOne_@i" href="#collapseOne_@i" class="text-info">
+                    <span class="glyphicon glyphicon-collapse-down"> </span> View All Journal Entries
+                </a>
+            </h4>
+        </div>
+        <div id="collapseOne_@i" class="panel-collapse collapse">
+            <div class="panel-body">
+                <div class="row">
+                    <div>
+                        @foreach (var entryListItem in Model)
+                        {
+                            var createUTC = entryListItem.CreatedUtc.Date.ToShortDateString();
+
+                            <div class="card bg-dark text-dark">
+                                <img class="card-img" src="~/Content/Assets/Entry/CroppedPage.jpg" style="background-attachment: fixed;" alt="Card image of a blank college ruled lined paper.">
+                                <div class="card-img-overlay" id="EntryCardOverlay" style="overflow: auto;">
+                                    <h3 class="card-title">@entryListItem.EntryTitle</h3>
+                                    <h5 class="card-text">Journal Entry ID # @Html.DisplayFor(modelItem => entryListItem.EntryId), Created: @Html.DisplayFor(modelItem => createUTC)</h5>
+                                    @if (entryListItem.ModifiedUtc == null)
+                                    {
+                                        <p></p>
+                                    }
+                                    else
+                                    {
+                                        var newDates = entryListItem.ModifiedUtc.ToString().AsDateTime().Date.ToShortDateString();
+                                        <h6 class="card-text">Edited On: @newDates</h6>
+                                    }
+                                    <h5>@Html.DisplayFor(modelItem => entryListItem.EntryContent)</h5>
+                                    @if (entryListItem.GoalId == null)
+                                    {
+                                        <p></p>
+                                    }
+                                    else
+                                    {
+                                        <h6>For a goal? @Html.DisplayFor(modelItem => entryListItem.ForGoal),   Goal ID # @Html.DisplayFor(modelItem => entryListItem.GoalId)</h6>
+                                    }
+                                </div>
+                            </div>
+                            <p></p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

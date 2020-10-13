@@ -4,79 +4,46 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2 style="margin-top: 5%; margin-left: 5%">Journal Entry Detail</h2>
+<hr style="margin-bottom: 1%;" />
+@{ 
+    var createUTC = Model.CreatedUtc.Date.ToShortDateString();
+}
+    <div>
+        <div class="card bg-dark text-dark">
+            <img class="card-img" src="~/Content/Assets/Entry/CroppedPage.jpg" alt="Card image of a blank college ruled lined paper.">
+            <div class="card-img-overlay" id="EntryCardOverlay">
+                <h2 class="card-title">@Html.DisplayNameFor(model => model.EntryTitle)</h2>
+                <h3 class="card-text">Journal Entry ID # @Html.DisplayFor(model => model.EntryId), Created: @Html.DisplayFor(model => createUTC)</h3>
+                @*@if (Model.ModifiedUtc == null)
+                {
+                    <p></p>
+                }
+                else
+                {
+                    //var newDates = Model.ModifiedUtc.ToString().AsDateTime().Date.ToShortDateString();
+                    <h4 >Edited On: @Html.DisplayFor(model => model.ModifiedUtc)</h4>
+                }*@
+                <h3>@Html.DisplayFor(model => model.EntryContent)</h3>
+                @if (Model.GoalId == null)
+                {
+                    <p></p>
+                }
+                else
+                {
+                    <h4>For a goal? @Html.DisplayFor(model => model.ForGoal),   Goal ID # @Html.DisplayFor(model => model.GoalId)</h4>
+                }
+            </div>
+        </div>
+    </div>
+    <div style="margin-left: 10%; margin-top: 5%; margin-bottom: 5%;">
+        <button type="button" class="btn">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.EntryId }, new { @class = "btn btn-outline-info btn-lg" })
+        </button>
+        <button type="button" class="btn">
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline-info btn-lg" })
+        </button>
+    </div>
+    <p></p>
 
-<div>
-    <h4>EntryDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.EntryId)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.EntryId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Author)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Author)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EntryTitle)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EntryTitle)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EntryContent)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EntryContent)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ForGoal)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ForGoal)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.GoalId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.GoalId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedUtc)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifiedUtc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ModifiedUtc)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.EntryId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

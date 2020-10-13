@@ -1,15 +1,6 @@
 ﻿body {
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-    padding-top: 50px;
-    padding-bottom: 20px;
-=======
     background-color: #ffffff;
     background-image: url("https://www.transparenttextures.com/patterns/diamond-eyes.png");
->>>>>>> Stashed changes
-=======
-    
->>>>>>> e192b3de0d3292d80d02879b21bdea05a2bc88b8
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -30,4 +21,29 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+#EntryCreateForm {
+    background: url(/Content/Assets/Entry/NoteBookPage.jpg); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 40%;
+}
+
+#EntryCardOverlay {
+    margin-top: 7.5%;
+    margin-left: 14%;
+    margin-right: 5%;
+    margin-bottom: 4.5%;
+    background-color: rgba(255, 255, 255, 0.77);
+}
+
+#cardImage {
+    background-repeat: repeat;
+}
+
+.boxes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

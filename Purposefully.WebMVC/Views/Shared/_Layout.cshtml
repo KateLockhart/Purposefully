@@ -12,29 +12,23 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg">
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        @*<div class="navbar navbar-inverse navbar-fixed-top">*@
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    @Html.ActionLink("Purposefully", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Purposefully", "Index", "Home", new { area = "" }, new { @class = "navbar-brand text-info" })
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav mr-auto">
                         @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
-                        <li class="nav-item nav-link">@Html.ActionLink("Your Profile", "Index", "Profile", new { area = "" }, new { @class = "nav-link " })</li>
-                        <li class="nav-item nav-link">@Html.ActionLink("Goals", "Index", "Goal", new { area = "" }, new { @class = "nav-link " })</li>
-                        <li class="nav-item nav-link">@Html.ActionLink("Journal Entries", "Index", "Entry", new { area = "" }, new { @class = "nav-link " })</li>
-                        <li class="nav-item nav-link">@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link " })</li>
-                        <li class="nav-item nav-link">@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link " })</li>
+                        <li class="nav-item nav-link">@Html.ActionLink("Your Profile", "Index", "Profile", new { area = "" }, new { @class = "btn btn-outline-info btn-sm", @style = "font-weight: bold;" })</li>
+                        <li class="nav-item nav-link">@Html.ActionLink("Goals", "Index", "Goal", new { area = "" }, new { @class = "btn btn-outline-info btn-sm", @style = "font-weight: bold;" })</li>
+                        <li class="nav-item nav-link">@Html.ActionLink("Journal Entries", "Index", "Entry", new { area = "" }, new { @class = "btn btn-outline-info btn-sm", @style = "font-weight: bold;" })</li>
+                        <li class="nav-item nav-link">@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "btn btn-outline-info btn-sm", @style = "font-weight: bold;" })</li>
                     </ul>
                     @Html.Partial("_LoginPartial")
                 </div>
             </div>
-        </div>
+        @*</div>*@
     </nav>
     <div class="container body-content">
         @RenderBody()

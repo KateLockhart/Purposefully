@@ -4,85 +4,37 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h2 style="margin-top: 5%; margin-left: 3%">Delete A Goal</h2>
+<h5 style="margin-top: 3%; margin-left: 10%; margin-right: 10%;">We encourage you to edit and keep your goals even after completion. Seeing the goals you still have to work on or have completed helps you see your progress! If you do delete your goal, we will not be able to retrieve it after deletion.</h5>
+<hr style="margin-bottom: 1%;" />
 
-<h3>Are you sure you want to delete this?</h3>
+<h5 style="margin-left: 10%;">Are you sure you want to delete this?</h5>
 <div>
-    <h4>GoalDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.GoalId)
-        </dt>
+    <div style="margin-left: 27%; margin-top: 2%;">
+        <div class="card bg-light mb-3" style="width: 30rem; overflow-y: hidden;">
+            <div class="card-header">
+                <h6>Goal ID # @Html.DisplayFor(model => model.GoalId)</h6>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">@Html.DisplayFor(model => model.GoalTitle)</h4>
+                <p class="card-text d-inline-block text-wrap">@Html.DisplayFor(model => model.GoalContent)</p>
+                <p class="card-text">Start Date: @Html.DisplayFor(model => model.StartDate)</p>
+                <p class="card-text">End Date: @Html.DisplayFor(model => model.EndDate)</p>
+                <p class="card-text">Difficulty: @Html.DisplayFor(model => model.Difficulty)/5</p>
+                <h6>Completed? @Html.DisplayFor(model => model.Completed)</h6>
+            </div>
+        </div>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.GoalId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.GoalTitle)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.GoalTitle)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.GoalContent)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.GoalContent)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Difficulty)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Difficulty)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.StartDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.StartDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EndDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EndDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Completed)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Completed)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ProfileId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ProfileId)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+        <div style="margin-left: 10%; margin-top: 5%; margin-bottom: 5%;">
+            <input type="submit" value="Delete" class="btn btn-danger btn-lg" />
+            <button class="form-actions btn no-color" type="button">
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline-info btn-lg" })
+            </button>
         </div>
     }
 </div>

@@ -3,68 +3,68 @@
 @{
     ViewBag.Title = "Edit";
 }
+<h2 style="margin-top: 5%; margin-left: 3%">Edit Goal</h2>
+<h5 style="margin-top: 3%; margin-left: 10%; margin-right: 10%;">Edit your goal below, be sure to add the goal and profile ID that matches your account.</h5>
+<hr style="margin-bottom: 1%;" />
 
-<h2>Edit</h2>
+
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
-    <h4>GoalEdit</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.GoalId, htmlAttributes: new { @class = "control-label col-md-2" })
+<div class="form" style="margin-top: 3%; margin-left: 25%;">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-row">
+        @Html.LabelFor(model => model.GoalId, "Goal ID #:", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.GoalId, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.GoalId, "", new { @class = "text-danger" })
         </div>
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.GoalTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+    <br />
+    <div class="form-row">
+        @Html.LabelFor(model => model.GoalTitle, "Goal Title:", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.GoalTitle, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.GoalTitle, "", new { @class = "text-danger" })
         </div>
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.GoalContent, htmlAttributes: new { @class = "control-label col-md-2" })
+    <br />
+    <div class="form-row">
+        @Html.LabelFor(model => model.GoalContent, "Define and Detail Your Goal:", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.GoalContent, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.GoalContent, "", new { @class = "text-danger" })
         </div>
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Difficulty, htmlAttributes: new { @class = "control-label col-md-2" })
+    <br />
+    <div class="form-row">
+        @Html.LabelFor(model => model.Difficulty, "Difficulty Level (1-5):", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.Difficulty, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Difficulty, "", new { @class = "text-danger" })
         </div>
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+    <br />
+    <div class="form-row">
+        @Html.LabelFor(model => model.StartDate, "Start Date:", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
         </div>
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+    <br />
+    <div class="form-row">
+        @Html.LabelFor(model => model.EndDate, "End Date:", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
         </div>
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Completed, htmlAttributes: new { @class = "control-label col-md-2" })
+    <br />
+    <div class="form-row">
+        @Html.LabelFor(model => model.Completed, "Goal Completed?", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             <div class="checkbox">
                 @Html.EditorFor(model => model.Completed)
@@ -72,23 +72,25 @@
             </div>
         </div>
     </div>
-
-    <div class="form-group">
-            @Html.LabelFor(model => model.ProfileId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ProfileId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ProfileId, "", new { @class = "text-danger" })
-            </div>
+    <br />
+    <div class="form-row">
+        @Html.LabelFor(model => model.ProfileId, "Your Profile ID #:", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ProfileId, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ProfileId, "", new { @class = "text-danger" })
         </div>
-
-    <div class="form-group">
+    </div>
+    <br />
+    <div class="form-row">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
+            <input type="submit" value="Save" class="btn btn-info" />
         </div>
     </div>
 </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<div style="margin-left: 10%; margin-top: 2%; margin-bottom: 2%;">
+    <button type="button" class="btn">
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline-info btn-lg" })
+    </button>
 </div>

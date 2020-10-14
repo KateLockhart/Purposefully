@@ -4,72 +4,90 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 style="margin-top: 5%; margin-left: 3%">Goal Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.GoalId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GoalTitle)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GoalContent)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Difficulty)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StartDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Completed)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProfileId)
-        </th>
-        <th></th>
-    </tr>
+<button type="button" class="btn" style="margin: 2%;">
+    @Html.ActionLink("Create New Goal", "Create", "", new { @class = "btn btn-info btn-md" })
+</button>
+<hr style="margin-bottom: 1%;" />
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.GoalId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GoalTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GoalContent)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Difficulty)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Completed)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProfileId)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.GoalId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.GoalId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.GoalId })
-        </td>
-    </tr>
-}
-
+<table class="table table-hover" style="background-color: white;">
+    <thead>
+        <tr>
+            <th scope="col">
+                Goal ID #
+            </th>
+            <th scope="col">
+                Profile ID #
+            </th>
+            <th scope="col">
+                Goal Title
+            </th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr>
+                <th scope="row">
+                    @Html.DisplayFor(modelItem => item.GoalId)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProfileId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GoalTitle)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.GoalId }, new { @class = "text-info" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.GoalId }, new { @class = "text-success" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.GoalId }, new { @class = "text-danger" })
+                </td>
+            </tr>
+        </tbody>
+    }
 </table>
+
+
+@{ int i = 0; }
+
+<div class="panel-group" id="accordion_@i" >
+    <div class="panel panel-default" id="panel_@i">
+        <div class="panel-heading">
+            <h4 class="panel-title" style="margin-top: 3%;">
+                <a data-toggle="collapse" data-target="#collapseOne_@i" href="#collapseOne_@i" class="text-info">
+                    <span class="glyphicon glyphicon-collapse-down"> </span> View All Journal Entries
+                </a>
+            </h4>
+        </div>
+        <div id="collapseOne_@i" class="panel-collapse collapse">
+            <div class="panel-body">
+                <div class="card-columns">
+                    <div class="row">
+                        @foreach (var goalListItem in Model)
+                        {
+                            <div style="white-space: nowrap;">
+                                <div class="card bg-light mb-3" style="width: 20rem; overflow-y: hidden;">
+                                    <div class="card-header">
+                                        <h6>Goal ID # @Html.DisplayFor(modelItem => goalListItem.GoalId)</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title">@goalListItem.GoalTitle</h4>
+                                        <p class="card-text d-inline-block text-wrap">@goalListItem.GoalContent</p>
+                                        <p class="card-text">Start Date: @Html.DisplayFor(modelItem => goalListItem.StartDate)</p>
+                                        <p class="card-text">End Date: @Html.DisplayFor(modelItem => goalListItem.EndDate)</p>
+                                        <p class="card-text">Difficulty: @Html.DisplayFor(modelItem => goalListItem.Difficulty)/5</p>
+                                        <h6>Completed? @Html.DisplayFor(modelItem => goalListItem.Completed)</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

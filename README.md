@@ -67,7 +67,7 @@ Pull requests are always welcome. For major changes to the API, please open an i
 Wiki repository being developed for more detailed documentation.
 
 
-## Authors of Purposefully
+## Author of Purposefully
 
 * **Kate Lockhart**
 A recent [Eleven Fifty Academy]( https://elevenfifty.org/) front end web development graduate, continuing her education with their software development program.

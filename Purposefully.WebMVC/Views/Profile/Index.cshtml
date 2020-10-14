@@ -4,54 +4,29 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 style="margin-top: 5%; margin-left: 3%">Profile</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ProfileId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FullName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Motivation)
-        </th>
-        <th></th>
-    </tr>
+<button type="button" class="btn" style="margin: 1%;">
+    @Html.ActionLink("Create New Profile", "Create", "", new { @class = "btn btn-info btn-md" })
+</button>
+<hr style="margin-bottom: 1%;" />
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProfileId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FullName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Motivation)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProfileId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProfileId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProfileId })
-        </td>
-    </tr>
+
+@foreach (var item in Model)
+{
+    <div class="card mb-3">
+        <img class="card-img-top" src="~/Content/Assets/Profile/ProfileQuote.jpg" alt="Card image cap">
+        <div class="card-body text-center">
+            <h3 class="card-title">@Html.DisplayFor(modelItem => item.FullName), you can do this.</h3>
+            <h4 class="card-text"> @Html.DisplayFor(modelItem => item.Motivation)</h4>
+            <p class="card-text">Your Profile ID # is @Html.DisplayFor(modelItem => item.ProfileId)</p>
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProfileId }, new { @class = "text-info" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProfileId }, new { @class = "text-success" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProfileId }, new { @class = "text-danger" })
+            </p>
+        </div>
+    </div>
+
 }
 
-</table>

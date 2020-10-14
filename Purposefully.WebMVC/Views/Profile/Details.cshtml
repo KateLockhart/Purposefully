@@ -4,55 +4,25 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2 style="margin-top: 5%; margin-left: 3%">Profile Detail</h2>
 
-<div>
-    <h4>ProfileDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        @*<dt>
-            @Html.DisplayNameFor(model => model.ProfileId)
-        </dt>
+<hr style="margin-bottom: 1%;" />
 
-        <dd>
-            @Html.DisplayFor(model => model.ProfileId)
-        </dd>*@
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FullName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FullName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Motivation)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Motivation)
-        </dd>
-
-    </dl>
+<div class="card mb-3">
+    <img class="card-img-top" src="~/Content/Assets/Profile/thebestlife.png" alt="Card image cap">
+    <div class="card-body text-center">
+        <h3 class="card-title">@Html.DisplayFor(model => model.FullName), you can do this.</h3>
+        <h4 class="card-text"> @Html.DisplayFor(model => model.Motivation)</h4>
+        <p class="card-text">Your Profile ID # is @Html.DisplayFor(model => model.ProfileId)</p>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ProfileId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div style="margin-left: 10%; margin-top: 2%; margin-bottom: 2%;">
+    <button type="button" class="btn">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ProfileId }, new { @class = "btn btn-outline-info btn-lg" })
+    </button>
+    <button type="button" class="btn">
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline-info btn-lg" })
+    </button>
+</div>
+<p></p>

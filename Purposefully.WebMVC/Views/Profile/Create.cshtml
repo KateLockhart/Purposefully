@@ -4,51 +4,54 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h3 style="margin-top: 5%; margin-left: 3%">Create Your Profile</h3>
+<h6 style="margin-top: 3%; margin-left: 10%; margin-right: 10%;">We keep your profile very simple. This is a place just for your name and what motivates you. List your loved ones, things that bring you joy, or quotes that inspire you. This is a space for you to return to find your motivation again.</h6>
+<hr style="margin-bottom: 1%;" />
 
 
-@using (Html.BeginForm()) 
+
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>ProfileCreate</h4>
-        <hr />
+
+    <div class="form" style="margin-top: 3%; margin-left: 25%;">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
+        <div class="form-row">
             @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <div class="form-group">
+        <br />
+        <div class="form-row">
             @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <div class="form-group">
+        <br />
+        <div class="form-row">
             @Html.LabelFor(model => model.Motivation, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Motivation, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.Motivation, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Motivation, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <div class="form-group">
+        <br />
+        <div class="form-row">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-info"/>
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<div style="margin-left: 10%; margin-top: 2%; margin-bottom: 2%;">
+    <button type="button" class="btn">
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline-info btn-lg" })
+    </button>
 </div>
 
 @section Scripts {
